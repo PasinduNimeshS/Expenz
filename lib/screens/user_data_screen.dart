@@ -1,5 +1,7 @@
 import 'package:expenz/constants/colors.dart';
 import 'package:expenz/constants/constants.dart';
+import 'package:expenz/screens/main_screen.dart';
+import 'package:expenz/services/user_service.dart';
 import 'package:expenz/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -168,7 +170,7 @@ class _UserDataScreenState extends State<UserDataScreen> {
                         height: 30,
                       ),
                       GestureDetector(
-                        onTap: () {
+                        onTap: () async {
                           if (_formKey.currentState!.validate()) {
                             //formm is valid process data
                             String userName = _userNameControllor.text;
@@ -177,8 +179,21 @@ class _UserDataScreenState extends State<UserDataScreen> {
                             String confirmPassword =
                                 _confirmPasswordControllor.text;
 
-                            print(
-                                "$userName $email $password $confirmPassword");
+                            //save the user name and password in the device storage
+                            // await UserService.storeUserDetails(
+                            //   userName: userName,
+                            //   email: email,
+                            //   password: password,
+                            //   confirmPassword: confirmPassword,
+                            //   context: context,
+                            // );
+
+                            //navigate to the main screen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MainScreen()),
+                            );
                           }
                         },
                         child: CustomButton(
