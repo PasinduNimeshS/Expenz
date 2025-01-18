@@ -179,14 +179,14 @@ class _UserDataScreenState extends State<UserDataScreen> {
                             String confirmPassword =
                                 _confirmPasswordControllor.text;
 
-                            //save the user name and password in the device storage
-                            // await UserService.storeUserDetails(
-                            //   userName: userName,
-                            //   email: email,
-                            //   password: password,
-                            //   confirmPassword: confirmPassword,
-                            //   context: context,
-                            // );
+                            // save the user name and password in the device storage
+                            await UserService.storeUserDetails(
+                              userName: userName,
+                              email: email,
+                              password: password,
+                              confirmPassword: confirmPassword,
+                              context: context,
+                            );
 
                             //navigate to the main screen
                             Navigator.push(
